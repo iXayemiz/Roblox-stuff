@@ -1192,7 +1192,7 @@ task.spawn(C_3);
 local function C_8()
 local script = G2L["8"];
 	local messages = {
-		"DM's are open for everyone! 9amhd on discord.",
+		"DMs are always open, x86_assembly_injection on discord",
 		"More scripts coming soon, this is basically a demo.",
 		"Follow my roblox account iXayemiz for more stuff",
 		"Welcome to the brand new UTG! Have fun",
