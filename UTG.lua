@@ -1596,26 +1596,41 @@ end;
 task.spawn(C_56);
 -- StarterGui.UTG.ScreenGui.UTGFrame.ScrollingFrameHolder.ScrollingFrame.Scripts.Walmart.LocalScript
 local function C_5b()
-local script = G2L["5b"];
+	local script = G2L["5b"]
+
 	script.Parent.MouseButton1Down:Connect(function()
+		-- Teleport player
+		local player = game.Players.LocalPlayer
+		local character = player.Character or player.CharacterAdded:Wait()
+		local rootPart = character:WaitForChild("HumanoidRootPart")
+
+		rootPart.CFrame = CFrame.new(-33, 621, -16)
+
+		-- Load Walmart asset
 		local InsertService = game:GetService("InsertService")
 		local assetId = 6763551855
+
 		local success, result = pcall(function()
 			return InsertService:LoadAsset(assetId)
 		end)
+
 		if success and result then
 			result.Parent = workspace
+
 			if result:IsA("Model") then
 				result:MoveTo(Vector3.new(0, -10, 0))
 			end
 		else
-				warn("Client-side load failed: " .. tostring(result))
+			warn("Client-side load failed: " .. tostring(result))
+
 			local successAlt, objects = pcall(function()
 				return game:GetObjects("rbxassetid://" .. assetId)
 			end)
+
 			if successAlt and objects and #objects > 0 then
 				for _, obj in ipairs(objects) do
 					obj.Parent = workspace
+
 					if obj:IsA("Model") then
 						obj:MoveTo(Vector3.new(0, -10, 0))
 					end
@@ -1625,8 +1640,9 @@ local script = G2L["5b"];
 			end
 		end
 	end)
-end;
-task.spawn(C_5b);
+end
+
+task.spawn(C_5b)
 -- StarterGui.UTG.ScreenGui.UTGFrame.TextBox.LocalScript
 local function C_60()
 local script = G2L["60"];
